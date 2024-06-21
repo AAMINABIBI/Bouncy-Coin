@@ -1,8 +1,20 @@
-const express=require  ('express')
-const app=express()
-const port=5000;
-app.get('/',(req,res)=>{
-    res.send('hello world.......')
-})
+const express = require('express');
+const { PORT } = require('./config/index');
+const dbconnect = require('./database/index');
 
-app.listen(port,console.log(`app is running on port ${port}`))
+console.log(`Configured port: ${PORT}`);
+const app = express();
+
+dbconnect();
+
+app.get('/', (req, res) => {
+    res.send('hello world.......');
+});
+
+app.listen(PORT, (err) => {
+    if (err) {
+        console.error(`Error starting server on port ${PORT}:`, err);
+        process.exit(1);
+    }
+    console.log(`Backend is running on port: ${PORT}`);
+});

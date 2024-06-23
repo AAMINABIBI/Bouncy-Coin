@@ -1,15 +1,17 @@
 const express = require('express');
 const { PORT } = require('./config/index');
 const dbconnect = require('./database/index');
-
+const router=require('./routes/index');
+const errorHandler=require('./middlewares/errorHandler')
 console.log(`Configured port: ${PORT}`);
 const app = express();
 
+app.use(express.json());
+app.use(router);
+
 dbconnect();
 
-app.get('/', (req, res) => {
-    res.send('hello world.......');
-});
+app.use(errorHandler);
 
 app.listen(PORT, (err) => {
     if (err) {

@@ -5,7 +5,7 @@ const router=express.Router();
 //user
 
 //register
-router.post('register',authController.register);
+router.post('/register',authController.register);
 //login
 router.post('/login',authController.login);
 

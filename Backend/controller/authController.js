@@ -1,7 +1,7 @@
 const Joi = require("joi");
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
-const JWTService = require("../services/JWTServices"); // Import JWTService
+const JWTService = require("../services/JWTService"); // Import JWTService
 const RefreshToken = require("../Models/token"); // Assuming you have a RefreshToken model
 const UserDTO = require("../dto/user"); // Assuming you have a UserDTO module
 

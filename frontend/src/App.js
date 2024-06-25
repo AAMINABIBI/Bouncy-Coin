@@ -3,8 +3,14 @@ import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home/Home";
 import styles from './App.module.css'
+import Protected from "./components/Protected/Protected";
+import Error from "./pages/Error/Error"
+import Login from './pages/Login/Login'
+
 function App() {
+  const isAuth=false;
   return (
+   
     <div className={styles.container} >
       <BrowserRouter>
         <div className={styles.layout}>
@@ -32,32 +38,47 @@ function App() {
 
             <Route path='blogs'
               exact
-              element={<div className=
+              element={
+                <Protected isAuth={isAuth}>
+              <div className=
                 {styles.main
-                }>Blogs</div>}>
+                }>Blogs</div>
+                </Protected>
+                }>
             </Route>
 
             <Route path='submit'
               exact
-              element={<div className=
+              element={
+              <Protected  isAuth={isAuth}>
+              <div className=
                 {styles.main
-                }>Submit a blog Page</div>}>
+                }>Submit a blog Page</div>
+                </Protected>}
+                >
             </Route>
 
-            <Route path='sign-up'
+            <Route path='signup'
               exact
               element={<div className=
                 {styles.main
                 }>Sign Up Page</div>}>
             </Route>
 
-            <Route path='log-in'
+            <Route path='login'
               exact
               element={<div className=
                 {styles.main
-                }>Log In Page</div>}>
+                }><Login /></div>}>
             </Route>
+<Route path='*'
+element={
+  <div className={styles.main}><Error>
+    </Error>
+    </div>
+}>
 
+</Route>
 
           </Routes>
 

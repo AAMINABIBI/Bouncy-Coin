@@ -30,12 +30,12 @@ function Navbar() {
                 {isAuthenticated ? <div><NavLink><button className={styles.signOutButton}>Sign out</button></NavLink></div>
                     : <div>
                         <NavLink
-                            to='log-in'
+                            to='login'
                             className={({ isActive }) => isActive ? styles.activeStyle : styles.inActiveStyle}
                         >
                             <button className={styles.logInbutton}>Log in</button></NavLink>
                         <NavLink
-                            to='sign-up'
+                            to='signup'
                             className={({ isActive }) => isActive ? styles.activeStyle : styles.inActiveStyle}
                         ><button className={styles.signUpbutton}>Sign up</button>
                         </NavLink>

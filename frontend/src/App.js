@@ -6,9 +6,10 @@ import styles from './App.module.css'
 import Protected from "./components/Protected/Protected";
 import Error from "./pages/Error/Error"
 import Login from './pages/Login/Login'
+import { useSelector } from "react-redux";
 
 function App() {
-  const isAuth=false;
+  const isAuth=useSelector((state)=>state.user.auth);
   return (
    
     <div className={styles.container} >

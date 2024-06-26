@@ -7,7 +7,10 @@ import Protected from "./components/Protected/Protected";
 import Error from "./pages/Error/Error"
 import Login from './pages/Login/Login'
 import { useSelector } from "react-redux";
-
+import Signup from "./pages/Signup/Signup";
+import Crypto from "./pages/Crypto/Crypto";
+import Blog from "./pages/Blog/Blog";
+import SubmitBlog from "./pages/SubmitBlog/SubmitBlog";
 function App() {
   const isAuth=useSelector((state)=>state.user.auth);
   return (
@@ -34,7 +37,7 @@ function App() {
               exact
               element={<div className=
                 {styles.main
-                }>Crypto Page</div>}>
+                }><Crypto/></div>}>
             </Route>
 
             <Route path='blogs'
@@ -43,7 +46,7 @@ function App() {
                 <Protected isAuth={isAuth}>
               <div className=
                 {styles.main
-                }>Blogs</div>
+                }><Blog/></div>
                 </Protected>
                 }>
             </Route>
@@ -54,7 +57,7 @@ function App() {
               <Protected  isAuth={isAuth}>
               <div className=
                 {styles.main
-                }>Submit a blog Page</div>
+                }><SubmitBlog/></div>
                 </Protected>}
                 >
             </Route>
@@ -63,7 +66,7 @@ function App() {
               exact
               element={<div className=
                 {styles.main
-                }>Sign Up Page</div>}>
+                }><Signup/></div>}>
             </Route>
 
             <Route path='login'
